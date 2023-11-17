@@ -1,0 +1,3 @@
+[submodule "supports/business/feature/welcome"]
+	path = supports/business/feature/welcome
+	url = https://github.com/xzhihua120/KmpModuleWelcome.git
