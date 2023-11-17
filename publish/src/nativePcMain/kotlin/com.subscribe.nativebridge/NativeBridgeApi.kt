@@ -39,7 +39,6 @@ object NativeBridgeApi : NativeBridge, SynchronizedObject() {
     init {
         synchronized(this) {
             println("$TAG: NativeBridgeApi init")
-            // JSBridgeModuleFactory.initModules()
             initMethodReturn()
             initEventSend()
         }
