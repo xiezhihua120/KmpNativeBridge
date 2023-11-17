@@ -5,7 +5,7 @@ plugins {
     id("maven-publish")
 }
 
-version = project.properties["publish.version"].toString()
+version = providers.gradleProperty("subscribe.repo.maven.version").get()
 
 gradlePlugin {
     plugins {

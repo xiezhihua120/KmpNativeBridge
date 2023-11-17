@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.subscribe.nativebridge.processor"
-version = project.properties["publish.version"].toString()
+version = providers.gradleProperty("subscribe.repo.maven.version").get()
 
 kotlin {
     jvm {
