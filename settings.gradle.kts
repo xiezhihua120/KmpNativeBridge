@@ -21,10 +21,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "KmpNativeBridge"
-include(":publish")
-project(":publish").projectDir = file("publish")
-
 gradle.addBuildListener(object : BuildListener {
     override fun settingsEvaluated(settings: Settings) {
         // empty impl
@@ -42,4 +38,16 @@ gradle.addBuildListener(object : BuildListener {
         println("[Gradle执行完成...]")
     }
 })
+
+rootProject.name = "KmpNativeBridge"
+include(":publish")
+project(":publish").projectDir = file("publish")
+
+include("nativeBridge-annotation")
+project(":nativeBridge-annotation").projectDir = file("supports/nativeBridge-annotation")
+include("nativeBridge-processor")
+project(":nativeBridge-processor").projectDir = file("supports/nativeBridge-processor")
+include(":nativeBridge-script")
+project(":nativeBridge-script").projectDir = file("supports/nativeBridge-script")
+
 
