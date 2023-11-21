@@ -1,4 +1,4 @@
-val kspVersion: String = "1.8.0-1.0.8"
+val kspVersion: String = "1.9.10-1.0.13"
 
 plugins {
     kotlin("multiplatform")

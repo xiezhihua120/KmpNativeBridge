@@ -43,17 +43,14 @@ class JSBridgeProcessor(private val codeGenerator: CodeGenerator, private val lo
         const val MODULE_PREFIX = "JSBridgeModule"
         const val FACTORY_NAME = "JSBridgeModuleFactory"
         private val MUTABLE_MAP_CLASS = ClassName("kotlin.collections", "MutableMap")
-        private val EVENT_HANDLE_CLASS = ClassName(
-            EventHandlerBase::class.java.packageName,
-            "${EventHandlerBase::class.simpleName}"
-        )
+        private val EVENT_HANDLE_CLASS = EventHandlerBase::class.asTypeName()
         private val EVENT_HANDLE_GENERIC_CLASS =
             EVENT_HANDLE_CLASS.parameterizedBy(TypeVariableName.invoke("*"))
     }
 
     private var invoked = false
     private var moduleFileSpecList: MutableList<FileSpec> = mutableListOf()
-    private var pkgName = BridgeModuleCenter::class.java.packageName
+    private var pkgName = BridgeModuleCenter::class.asTypeName().packageName
 
     @OptIn(KspExperimental::class)
     override fun process(resolver: Resolver): List<KSAnnotated> {
@@ -283,7 +280,7 @@ class JSBridgeProcessor(private val codeGenerator: CodeGenerator, private val lo
 
         // 方法
 
-        val moduleNull = ClassName(BridgeModule::class.java.packageName, BridgeModule::class.java.simpleName)
+        val moduleNull = ClassName(BridgeModule::class.asTypeName().packageName, BridgeModule::class.java.simpleName)
         val getModule = FunSpec.builder(BridgeModuleProvider::getModule.name)
             .addModifiers(KModifier.OVERRIDE)
             .addParameter(BridgeModule::module.name, String::class)

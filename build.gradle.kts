@@ -6,4 +6,5 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform).apply(false)
     alias(libs.plugins.ksp).apply(false)
     alias(libs.plugins.org.jetbrains.kotlin.jvm) apply false
+    // id("com.subscribe.gradlek").version("1.0.21") apply false
 }

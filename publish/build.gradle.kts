@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("com.google.devtools.ksp")
+    // id("com.subscribe.gradlek")
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -84,4 +85,11 @@ android {
         minSdk = 21
     }
 }
+
+//NativeBridge {
+//    namedSourceSets = "nativePcMain"
+//    info {
+//        version = "1.0.0"
+//    }
+//}
 
