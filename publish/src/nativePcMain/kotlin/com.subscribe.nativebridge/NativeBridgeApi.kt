@@ -1,6 +1,5 @@
 package com.subscribe.nativebridge
 
-import com.subscribe.nativebridge.method.MethodHandler
 import com.subscribe.nativebridge.modules.JSBridgeModuleFactory
 import kotlinx.atomicfu.locks.SynchronizedObject
 import kotlinx.atomicfu.locks.synchronized
