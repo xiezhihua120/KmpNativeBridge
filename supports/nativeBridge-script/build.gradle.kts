@@ -1,5 +1,4 @@
 plugins {
-    id("groovy")
     id("java-gradle-plugin")
     id("org.jetbrains.kotlin.jvm")
     id("maven-publish")
@@ -16,6 +15,11 @@ gradlePlugin {
         }
     }
 }
+
+//java {
+//    sourceCompatibility = JavaVersion.VERSION_11
+//    targetCompatibility = JavaVersion.VERSION_11
+//}
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")

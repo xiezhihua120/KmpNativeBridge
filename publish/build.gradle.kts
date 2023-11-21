@@ -2,7 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("com.google.devtools.ksp")
-    // id("com.subscribe.gradlek")
+    id("com.subscribe.gradlek")
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -52,7 +52,7 @@ kotlin {
             dependencies {
                 implementation("org.jetbrains.kotlinx:atomicfu:0.21.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-                implementation("com.subscribe.nativebridge.annotation:nativeBridge-annotation:1.0.20")
+                implementation("com.subscribe.nativebridge.annotation:nativeBridge-annotation:1.0.23")
             }
         }
         val commonTest by getting {
@@ -84,12 +84,19 @@ android {
     defaultConfig {
         minSdk = 21
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
-//NativeBridge {
-//    namedSourceSets = "nativePcMain"
-//    info {
-//        version = "1.0.0"
-//    }
-//}
+NativeBridge {
+    namedSourceSets = "nativePcMain"
+    info {
+        version = "1.0.0"
+    }
+}
+
+
 
