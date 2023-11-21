@@ -36,7 +36,7 @@ val repoDir: String =
 publishing {
     repositories {
         maven {
-            name = "localPluginRepository"
+            name = "NativeProcessor"
             url = uri(repoDir)
         }
     }

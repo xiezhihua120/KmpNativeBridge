@@ -9,17 +9,12 @@ version = providers.gradleProperty("subscribe.repo.maven.version").get()
 gradlePlugin {
     plugins {
         create("kotlinPlugin") {
-            id = "com.subscribe.gradlek"
-            group = "com.subscribe.gradlek"
+            id = "com.subscribe.nativebridge"
+            group = "com.subscribe.nativebridge"
             implementationClass = "com.subscribe.gradlek.NativeBridgePlugin"
         }
     }
 }
-
-//java {
-//    sourceCompatibility = JavaVersion.VERSION_11
-//    targetCompatibility = JavaVersion.VERSION_11
-//}
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
