@@ -92,9 +92,6 @@ android {
 
 NativeBridge {
     namedSourceSets = "nativePcMain"
-    info {
-        version = "1.0.0"
-    }
 }
 
 

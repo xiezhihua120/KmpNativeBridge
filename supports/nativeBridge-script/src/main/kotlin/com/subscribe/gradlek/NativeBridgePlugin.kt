@@ -1,5 +1,6 @@
 package com.subscribe.gradlek
 
+import com.subscribe.nativebridge.BuildConfig
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetContainer
@@ -23,8 +24,10 @@ import java.io.File
 
 
 class NativeBridgePlugin : Plugin<Project> {
+    private val pluginVersion = BuildConfig.PLUGIN_VERSION
+
     override fun apply(target: Project) {
-        println(">>>>>>>>  " + this::class.qualifiedName + ", version = null")
+        println(">>>>>>>>  " + this::class.qualifiedName + ", version = $pluginVersion")
         val extension = target.extensions.create("NativeBridge", NativeBridgeExtension::class.java)
         target.afterEvaluate {
             configNativeBridge(extension, target)
@@ -48,13 +51,13 @@ class NativeBridgePlugin : Plugin<Project> {
         if (sourceSetName == "commonMain") {
             target.dependencies.add(
                 "kspCommonMainMetadata",
-                target.dependencies.create("com.subscribe.nativebridge.processor:nativeBridge-processor:1.0.26")
+                target.dependencies.create("com.subscribe.nativebridge.processor:nativeBridge-processor:$pluginVersion")
             )
         } else {
             val sourceSetPrefix = removeSuffix(sourceSetName, "Main")
             target.dependencies.add(
                 "ksp${capitalizeFirstLetter(sourceSetPrefix)}",
-                target.dependencies.create("com.subscribe.nativebridge.processor:nativeBridge-processor:1.0.26")
+                target.dependencies.create("com.subscribe.nativebridge.processor:nativeBridge-processor:$pluginVersion")
             )
         }
         val containerClass = KotlinSourceSetContainer::class.java
@@ -66,7 +69,7 @@ class NativeBridgePlugin : Plugin<Project> {
             val namedSourceSetApi =
                 target.configurations.getByName(namedSourceSet.apiConfigurationName)
             namedSourceSetApi.dependencies.addAll(buildList {
-                add(target.dependencies.create("com.subscribe.nativebridge.annotation:nativeBridge-annotation:1.0.26"))
+                add(target.dependencies.create("com.subscribe.nativebridge.annotation:nativeBridge-annotation:$pluginVersion"))
             })
             namedSourceSet.kotlin.srcDir(
                 "build${File.separator}" + "generated${File.separator}" + "ksp${File.separator}" + "${
@@ -102,5 +105,5 @@ open class NativeBridgeExtension(private val project: Project) {
     }
 }
 open class InfoExtension(private val project: Project) {
-    var version: String = "version_${project.name}_0"
+    val version: String = BuildConfig.PLUGIN_VERSION
 }
