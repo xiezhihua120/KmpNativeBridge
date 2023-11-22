@@ -17,8 +17,8 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
-    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
+    implementation(libs.kotlinGradlePlugin)
+    compileOnly(libs.kotlinGradlePlugin)
 }
 
 val repoPath: String = providers.gradleProperty("subscribe.repo.maven.local").get()
