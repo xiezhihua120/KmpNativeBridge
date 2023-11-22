@@ -6,5 +6,5 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform).apply(false)
     alias(libs.plugins.ksp).apply(false)
     alias(libs.plugins.org.jetbrains.kotlin.jvm) apply false
-    id("com.subscribe.nativebridge").version("1.0.28") apply false
+    id("com.subscribe.nativebridge").version("1.0.29") apply false
 }
