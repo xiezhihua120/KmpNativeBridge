@@ -16,6 +16,12 @@ gradlePlugin {
     }
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
 dependencies {
     implementation(libs.kotlinGradlePlugin)
     compileOnly(libs.kotlinGradlePlugin)
